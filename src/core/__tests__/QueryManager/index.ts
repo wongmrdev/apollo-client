@@ -2447,6 +2447,7 @@ describe('QueryManager', () => {
           data: {
             info: {},
           },
+          partial: true,
         });
       } else if (count === 4) {
         expect(result).toEqual({

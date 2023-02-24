@@ -5011,18 +5011,19 @@ describe('useQuery Hook', () => {
       await waitFor(() => {
         expect(result.current.loading).toBe(false);
       }, { interval: 1 });
-      expect(result.current.data).toEqual(carData);
+
+      const { vine, ...carWithoutVine } = carData.cars[0];
+      expect(result.current.data).toEqual({
+        ...carData,
+        cars: [carWithoutVine],
+      });
       expect(result.current.error).toBeUndefined();
 
       expect(errorSpy).toHaveBeenCalled();
       expect(errorSpy).toHaveBeenLastCalledWith(
-        `Missing field '%s' while writing result %o`, 'vin', {
-          id: 1,
-          make: "Audi",
-          model: "RS8",
-          vine: "DOLLADOLLABILL",
-          __typename: "Car"
-        }
+        `Missing field 'vin' while writing result ${
+          JSON.stringify(carData.cars[0], null, 2)
+        }`
       );
       errorSpy.mockRestore();
     });

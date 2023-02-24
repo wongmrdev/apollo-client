@@ -2736,7 +2736,13 @@ describe('client', () => {
     });
 
     return client.query({ query }).then(({ data }) => {
-      expect(data).toEqual(result.data);
+      expect(data).toEqual({
+        todos: [{
+          __typename: 'Todo',
+          id: '1',
+          name: 'Todo 1',
+        }],
+      });
     }).then(resolve, reject);
   });
 

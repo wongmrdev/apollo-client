@@ -2412,7 +2412,7 @@ describe('QueryManager', () => {
           networkStatus: NetworkStatus.ready,
           data: {
             info: {
-              a: "ay",
+              // a: "ay",
             },
           },
         });

@@ -1,5 +1,11 @@
 # @apollo/client
 
+## 3.8.2
+
+### Patch Changes
+
+- [#11163](https://github.com/apollographql/apollo-client/pull/11163) [`a8a9e11e9`](https://github.com/apollographql/apollo-client/commit/a8a9e11e917716538206eb7d5de21dbfd09630bd) Thanks [@bignimbus](https://github.com/bignimbus)! - Fix typo in error message: "occured" -> "occurred"
+
 ## 3.8.1
 
 ### Patch Changes

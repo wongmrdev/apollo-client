@@ -18,7 +18,7 @@ import type { SkipToken } from "./constants.js";
 
 export type UseBackgroundQueryResult<
   TData = unknown,
-  TVariables extends OperationVariables = OperationVariables
+  TVariables extends OperationVariables = OperationVariables,
 > = {
   fetchMore: FetchMoreFunction<TData, TVariables>;
   refetch: RefetchFunction<TData, TVariables>;
@@ -26,13 +26,13 @@ export type UseBackgroundQueryResult<
 
 type BackgroundQueryHookOptionsNoInfer<
   TData,
-  TVariables extends OperationVariables
+  TVariables extends OperationVariables,
 > = BackgroundQueryHookOptions<NoInfer<TData>, NoInfer<TVariables>>;
 
 export function useBackgroundQuery<
   TData,
   TVariables extends OperationVariables,
-  TOptions extends Omit<BackgroundQueryHookOptions<TData>, "variables">
+  TOptions extends Omit<BackgroundQueryHookOptions<TData>, "variables">,
 >(
   query: DocumentNode | TypedDocumentNode<TData, TVariables>,
   options?: BackgroundQueryHookOptionsNoInfer<TData, TVariables> & TOptions
@@ -49,12 +49,12 @@ export function useBackgroundQuery<
       >
     | (TOptions["skip"] extends boolean ? undefined : never)
   ),
-  UseBackgroundQueryResult<TData, TVariables>
+  UseBackgroundQueryResult<TData, TVariables>,
 ];
 
 export function useBackgroundQuery<
   TData = unknown,
-  TVariables extends OperationVariables = OperationVariables
+  TVariables extends OperationVariables = OperationVariables,
 >(
   query: DocumentNode | TypedDocumentNode<TData, TVariables>,
   options: BackgroundQueryHookOptionsNoInfer<TData, TVariables> & {
@@ -63,12 +63,12 @@ export function useBackgroundQuery<
   }
 ): [
   QueryReference<DeepPartial<TData> | undefined>,
-  UseBackgroundQueryResult<TData, TVariables>
+  UseBackgroundQueryResult<TData, TVariables>,
 ];
 
 export function useBackgroundQuery<
   TData = unknown,
-  TVariables extends OperationVariables = OperationVariables
+  TVariables extends OperationVariables = OperationVariables,
 >(
   query: DocumentNode | TypedDocumentNode<TData, TVariables>,
   options: BackgroundQueryHookOptionsNoInfer<TData, TVariables> & {
@@ -76,12 +76,12 @@ export function useBackgroundQuery<
   }
 ): [
   QueryReference<TData | undefined>,
-  UseBackgroundQueryResult<TData, TVariables>
+  UseBackgroundQueryResult<TData, TVariables>,
 ];
 
 export function useBackgroundQuery<
   TData = unknown,
-  TVariables extends OperationVariables = OperationVariables
+  TVariables extends OperationVariables = OperationVariables,
 >(
   query: DocumentNode | TypedDocumentNode<TData, TVariables>,
   options: BackgroundQueryHookOptionsNoInfer<TData, TVariables> & {
@@ -90,12 +90,12 @@ export function useBackgroundQuery<
   }
 ): [
   QueryReference<DeepPartial<TData>> | undefined,
-  UseBackgroundQueryResult<TData, TVariables>
+  UseBackgroundQueryResult<TData, TVariables>,
 ];
 
 export function useBackgroundQuery<
   TData = unknown,
-  TVariables extends OperationVariables = OperationVariables
+  TVariables extends OperationVariables = OperationVariables,
 >(
   query: DocumentNode | TypedDocumentNode<TData, TVariables>,
   options: BackgroundQueryHookOptionsNoInfer<TData, TVariables> & {
@@ -103,12 +103,12 @@ export function useBackgroundQuery<
   }
 ): [
   QueryReference<DeepPartial<TData>>,
-  UseBackgroundQueryResult<TData, TVariables>
+  UseBackgroundQueryResult<TData, TVariables>,
 ];
 
 export function useBackgroundQuery<
   TData = unknown,
-  TVariables extends OperationVariables = OperationVariables
+  TVariables extends OperationVariables = OperationVariables,
 >(
   query: DocumentNode | TypedDocumentNode<TData, TVariables>,
   options: BackgroundQueryHookOptionsNoInfer<TData, TVariables> & {
@@ -116,12 +116,12 @@ export function useBackgroundQuery<
   }
 ): [
   QueryReference<TData> | undefined,
-  UseBackgroundQueryResult<TData, TVariables>
+  UseBackgroundQueryResult<TData, TVariables>,
 ];
 
 export function useBackgroundQuery<
   TData = unknown,
-  TVariables extends OperationVariables = OperationVariables
+  TVariables extends OperationVariables = OperationVariables,
 >(
   query: DocumentNode | TypedDocumentNode<TData, TVariables>,
   options?: BackgroundQueryHookOptionsNoInfer<TData, TVariables>
@@ -129,7 +129,7 @@ export function useBackgroundQuery<
 
 export function useBackgroundQuery<
   TData = unknown,
-  TVariables extends OperationVariables = OperationVariables
+  TVariables extends OperationVariables = OperationVariables,
 >(
   query: DocumentNode | TypedDocumentNode<TData, TVariables>,
   options: SkipToken
@@ -137,7 +137,7 @@ export function useBackgroundQuery<
 
 export function useBackgroundQuery<
   TData = unknown,
-  TVariables extends OperationVariables = OperationVariables
+  TVariables extends OperationVariables = OperationVariables,
 >(
   query: DocumentNode | TypedDocumentNode<TData, TVariables>,
   options:
@@ -147,23 +147,23 @@ export function useBackgroundQuery<
       })
 ): [
   QueryReference<DeepPartial<TData>> | undefined,
-  UseBackgroundQueryResult<TData, TVariables>
+  UseBackgroundQueryResult<TData, TVariables>,
 ];
 
 export function useBackgroundQuery<
   TData = unknown,
-  TVariables extends OperationVariables = OperationVariables
+  TVariables extends OperationVariables = OperationVariables,
 >(
   query: DocumentNode | TypedDocumentNode<TData, TVariables>,
   options?: SkipToken | BackgroundQueryHookOptionsNoInfer<TData, TVariables>
 ): [
   QueryReference<TData> | undefined,
-  UseBackgroundQueryResult<TData, TVariables>
+  UseBackgroundQueryResult<TData, TVariables>,
 ];
 
 export function useBackgroundQuery<
   TData = unknown,
-  TVariables extends OperationVariables = OperationVariables
+  TVariables extends OperationVariables = OperationVariables,
 >(
   query: DocumentNode | TypedDocumentNode<TData, TVariables>,
   options:
@@ -172,7 +172,7 @@ export function useBackgroundQuery<
     | BackgroundQueryHookOptionsNoInfer<TData, TVariables> = Object.create(null)
 ): [
   QueryReference<TData> | undefined,
-  UseBackgroundQueryResult<TData, TVariables>
+  UseBackgroundQueryResult<TData, TVariables>,
 ] {
   const client = useApolloClient(options.client);
   const suspenseCache = getSuspenseCache(client);
